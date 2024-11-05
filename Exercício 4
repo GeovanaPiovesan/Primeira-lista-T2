@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#pragma warning (disable:4996)
+
+int risadaEngracada(char risadaTeste[]) {
+    char vogais[5] = {'a', 'e', 'i', 'o', 'u'};
+    char vogaisRisada[200] = {0}; 
+    int index = 0;
+
+   
+    for (int i = 0; i < strlen(risadaTeste); i++) {
+        for (int j = 0; j < 5; j++) {
+            if (risadaTeste[i] == vogais[j]) {
+                vogaisRisada[index++] = risadaTeste[i]; 
+                break;
+            }
+        }
+    }
+    vogaisRisada[index] = '\0'; 
+
+    int len = strlen(vogaisRisada);
+    for (int i = 0; i < len / 2; i++) {
+        if (vogaisRisada[i] != vogaisRisada[len - i - 1]) {
+            return 0; 
+        }
+    }
+    return 1; 
+}
+
+int main() {
+    char parar = 'N';
+    char risada[200];
+    do {
+        printf("Digite a risada: ");
+        scanf(" %[^\n]", risada); 
+        if (risadaEngracada(risada)) {
+            printf("Eh uma risada engracada\n");
+        } else {
+            printf("Nao eh uma risada engracada\n");
+        }
+        printf("Deseja parar? (S/N): ");
+        scanf(" %c", &parar); 
+        system("cls");
+    } while (parar == 'N');
+
+    return 0;
+}
