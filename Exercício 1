@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#pragma warning (disable:4996)
+
+int main() {
+    char P1[100], P2[100], resultado[200];
+    int i = 0, j = 0, k = 0;
+    int len1, len2;
+
+    printf("Digite a primeira palavra: ");
+    scanf("%s", P1);
+    printf("Digite a segunda palavra: ");
+    scanf("%s", P2);
+
+    len1 = strlen(P1);
+    len2 = strlen(P2);
+
+    while (i < len1 && j < len2) {
+        resultado[k++] = P1[i++];
+        resultado[k++] = P2[j++];
+    }
+
+    
+    while (i < len1) {
+        resultado[k++] = P1[i++];
+    }
+    while (j < len2) {
+        resultado[k++] = P2[j++];
+    }
+
+    resultado[k] = '\0';
+
+    printf("Resultado: %s\n", resultado);
+
+    return 0;
+}
