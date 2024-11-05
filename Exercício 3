@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int calculoHash(const char* entrada) {
+    int hash = 0;
+    int tamanho = strlen(entrada);
+
+    for (int i = 0; i < tamanho; i++) {
+        char letras = entrada[i];
+        int Alfabeto = letras - 'A' + 1;
+        hash += Alfabeto;
+    }
+
+    return hash;
+}
+
+int main() {
+    const char* entradas[] = { "DAB", "DDF" };
+    int totalDoHash = 0;
+
+    for (int i = 0; i < 2; i++) {
+        totalDoHash += calculoHash(entradas[i]);
+    }
+
+    printf("O valor do hash eh: %d\n", totalDoHash);
+    return 0;
+}
