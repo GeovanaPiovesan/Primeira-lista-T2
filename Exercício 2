@@ -1,0 +1,30 @@
+#include <stdio.h>
+#pragma warning(disable:4996)
+#include <string.h>
+
+int main() {
+    char A[1000], B[100];
+
+    printf("Digite o valor de A (número grande): ");
+    scanf("%s", A);
+
+    printf("Digite o valor de B : ");
+    scanf("%s", B);
+
+    int compA = strlen(A);
+    int compB = strlen(B);
+
+    if (compB > compA) {
+        printf("B nao encaixa nos ultimos digitos de A.\n");
+    }
+    else {
+        if (strcmp(A + (compA - compB), B) == 0) {
+            printf("B encaixa nos ultimos digitos de A.\n");
+        }
+        else {
+            printf("B não encaixa nos ultimos digitos de A.\n");
+        }
+    }
+
+    return 0;
+}
